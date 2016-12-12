@@ -1,0 +1,26 @@
+version: '2'
+services:
+  django:
+    build: ./
+    command: [ /usr/src/app/entrypoint.sh ]
+    ports: [ "80" ]
+    env_file:
+      - ./postgres.env
+    links:
+      - postgres
+#    restart: always
+    networks:
+     - frontend
+     - backend
+  postgres:
+    image: postgres:9.6-alpine
+    env_file:
+      - ./postgres.env
+    networks:
+      - backend
+    restart: always
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
