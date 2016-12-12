@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-cd /django/
+cd /usr/src/app/
 
-if [ ! -f /django/transformap.conf ]; then
+if [ ! -f /usr/src/app/transformap.conf ]; then
   echo "Generating configuration"
-  /bin/bash -c "envsubst < /django/transformap.example.conf > /django/transformap.conf"
+  /bin/bash -c "envsubst < /django/transformap.example.conf > /usr/src/app/transformap.conf"
 fi
 
 make setupdb
-make runserver
+#make runserver
+/usr/src/app/.env/bin/python runserver 0.0.0.0:80
+
