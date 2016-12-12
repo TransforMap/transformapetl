@@ -27,11 +27,13 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Local settings file
+# Local settings files
 transformap.conf
+postgres.env
 
 # Virtual env
 venv
+.env
 
 # Log files
 *.log
